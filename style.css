@@ -1,0 +1,105 @@
+*{
+    margin: o;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Valorant';
+}
+@font-face{
+    font-family: 'Valorant';
+    src: url('./font/font.ttf');
+}
+body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 25px;
+    background-color: #212534;
+    font-family: 'Valorant';
+}
+@property --rotate{
+    syntax: "<angle>";
+    initial-value: 132deg;
+    inherits: false;
+}
+
+.card_container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px;
+}
+.card{
+    background: #191c29;
+    border-radius: 8px;
+    padding: 3px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow:hidden;
+}
+.card_image img{
+    width: 260px;
+    height: 410px;
+    padding: 10px 30px;
+}
+.card_content{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background: #191c29;
+    color: white;
+    padding: 10px;
+    transition: 0.5s ease-in-out;
+    transform: translateY(100px);
+    opacity: 0;
+
+} 
+.card_content p{
+    font-size: 18px;
+    margin-bottom: 10px;
+
+}
+.card_content small{
+    font-size: 14px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.about{
+    position: absolute;
+    top:45%;
+    right: -45px;
+    rotate: 90deg;
+    font-size: 22px;
+    color: #f74442;
+    
+}
+.card:hover .card_content{
+    transform: translateY(0);
+    opacity: 1;
+}
+.card:hover{
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgb(126, 117, 117, 0.35);
+}
+.card_box{
+    position: relative;
+}
+.card_box::before{
+    position: absolute;
+    content: '';
+    width: 104%;
+    height: 102%;
+    background-image: linear-gradient(var(--rotate),red,blue,green);
+    top: -1%;
+    left: -2%;
+    border-radius: 8px;
+    animation: spin 2s linear infinite;
+}
+@keyframes spin{
+    0%{
+        --rotate:0deg;
+    }
+    0%{
+        --rotate:360deg;
+    }
+}
